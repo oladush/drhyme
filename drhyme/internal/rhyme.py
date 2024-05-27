@@ -17,6 +17,12 @@ REPLACEABLE_ENDS = {
     'па': {'default': 'ампа'}
 }
 
+POST_RHYME_REPLACE = {
+    'йа': 'я', 'йе': 'е', 'йё': 'ё',
+    'йи': 'и', 'йо': 'ё', 'йу': 'ю',
+    'йэ': 'е', 'йю': 'ю', 'йя': 'я'
+}
+
 
 def get_rhyme(word: str, root=None):
     word = word.lower()
@@ -46,4 +52,9 @@ def get_rhyme(word: str, root=None):
         elif syllables[1][0] in CONSONANTS:
             syllables[1] = syllables[1][1:]
 
-    return ''.join(syllables)
+    result = ''.join(syllables)
+
+    for rep in POST_RHYME_REPLACE:
+        result = result.replace(rep, POST_RHYME_REPLACE[rep])
+
+    return result
