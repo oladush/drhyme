@@ -1,0 +1,2 @@
+pymorphy3>=2.0.1
+rusyllab @ git+https://github.com/Koziev/rusyllab@c5d0ea405e9cc8233bd65503c26c0d2ad8b5cb57
